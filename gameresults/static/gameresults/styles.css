@@ -1,0 +1,252 @@
+body {
+    padding: 10px;
+    padding-top: 80px;
+}
+
+table {
+  width: 100%;
+}
+
+.float-left {
+  float: left; 
+  display: inline; 
+  width: 49%;
+}
+
+.float-right {
+  float: right; 
+  display: inline; 
+  width: 49%;
+}
+
+.h2-spacing {
+  margin-bottom: 15px;
+}
+
+.card {
+  border: 1px solid #dfe1e5;
+  border-radius: 24px;
+  padding: 20px;
+}
+
+.card:hover {
+  box-shadow: 0 1px 6px 0 rgba(32,33,36,0.28);
+}
+
+.login-link {
+  color: #0c5460;
+}
+
+.login-link:hover {
+  color: black;
+}
+
+.timestamp {
+  color: grey;
+}
+
+.game-select {
+  align-items: center;
+  background: #f9f9f8;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  box-sizing: border-box;
+  color: #363b3e;
+  cursor: pointer;
+  display: flex;
+  font-size: 16px;
+  font-weight: 500;
+  justify-content: left;
+  min-height: 44px;
+  padding: 5px 10px;
+  position: relative;
+  transition: 0.2s;
+  width: 100%;
+  appearance: none;
+}
+
+.ranking-error {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  color: tomato;
+}
+
+#submit-result {
+  margin-top: 15px;
+  caret-color: transparent;
+}
+
+#submit-result:focus {
+  box-shadow: none !important;
+}
+
+#select-winners {
+  margin-bottom: 5px;
+  margin-top: 15px;
+  width: 100%;
+}
+
+#select-players {
+  margin-bottom: 5px;
+  margin-top: 15px;
+  width: 100%;
+}
+
+#select-game {
+  margin-bottom: 15px;
+  margin-top: 15px;
+  width: 100%;
+}
+
+/* Dropdown Button */
+.dropbtn {
+    background-color: #343a40;
+    color: white;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .drpdwn {
+    position: relative;
+    display: inline-block;
+    float: right;
+    margin-bottom: 20px;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  /* Show the dropdown menu on hover */
+  .drpdwn:hover .dropdown-content {display: block;}
+  
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .drpdwn:hover .dropbtn {background-color: #6c757d;}
+
+
+
+/* Select Pure */
+.select-wrapper {
+  margin: auto;
+  max-width: 600px;
+  width: calc(100% - 40px);
+}
+
+.select-pure__select {
+  align-items: center;
+  background: #f9f9f8;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  box-sizing: border-box;
+  color: #363b3e;
+  cursor: pointer;
+  display: flex;
+  font-size: 16px;
+  font-weight: 500;
+  justify-content: left;
+  min-height: 44px;
+  padding: 5px 10px;
+  position: relative;
+  transition: 0.2s;
+  width: 100%;
+}
+
+.select-pure__options {
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  box-sizing: border-box;
+  color: #363b3e;
+  display: none;
+  left: 0;
+  max-height: 221px;
+  overflow-y: scroll;
+  position: absolute;
+  top: 50px;
+  width: 100%;
+  z-index: 5;
+}
+
+.select-pure__select--opened .select-pure__options {
+  display: block;
+}
+
+.select-pure__option {
+  background: #fff;
+  border-bottom: 1px solid #e4e4e4;
+  box-sizing: border-box;
+  height: 44px;
+  line-height: 25px;
+  padding: 10px;
+}
+
+.select-pure__option--selected {
+  color: #e4e4e4;
+  cursor: initial;
+  pointer-events: none;
+}
+
+.select-pure__option--hidden {
+  display: none;
+}
+
+.select-pure__selected-label {
+  background: #5e6264;
+  border-radius: 4px;
+  color: #fff;
+  cursor: initial;
+  display: inline-block;
+  margin: 5px 10px 5px 0;
+  padding: 3px 7px;
+}
+
+.select-pure__selected-label:last-of-type {
+  margin-right: 0;
+}
+
+.select-pure__selected-label i {
+  cursor: pointer;
+  display: inline-block;
+  margin-left: 7px;
+}
+
+.select-pure__selected-label i:hover {
+  color: #e4e4e4;
+}
+
+.select-pure__autocomplete {
+  background: #f9f9f8;
+  border-bottom: 1px solid #e4e4e4;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  box-sizing: border-box;
+  font-size: 16px;
+  outline: none;
+  padding: 10px;
+  width: 100%;
+}
+/* End Select Pure */

@@ -1,0 +1,55 @@
+{% extends "gameresults/layout.html" %}
+
+{% block body %}
+
+    <h2>Player Rankings</h2>
+    <br>
+    {% if game is null %}
+    <p>Select a game to view rankings for that game.</p>
+    {% endif %}
+    <div>
+        <h3 class="float-left">{{ game }}</h3>
+        <div class="dropdown drpdwn">
+            <button class="dropbtn dropdown-toggle">Games </button>
+            <div class="dropdown-content">
+                {% for game in games %}
+                <a href="{% url 'game_rankings' game %}">{{ game }}</a>
+                {% endfor %}
+            </div>
+          </div>
+    </div>
+
+    <div class="table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Player</th>
+                    <th>Rating</th>
+                    <th>Change</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for rating in ratings %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ rating.user }}</td>
+                    <td>{{ rating.rank|floatformat:2 }}</td>
+                    {% if rating.change > 0 %}
+                    <td style="color:MediumSeaGreen;">
+                        ▲ {{ rating.change|floatformat:2 }}
+                    </td>
+                    {% else %}
+                    <td style="color:Tomato;">
+                        ▼ {{ rating.change|floatformat:2 }}
+                    </td>
+                    {% endif %}
+                </tr>
+                {% empty %}
+                <p class="float-left ranking-error">Not enough games have been played to rank players yet!</p>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "gameresults/layout.html" %}
+
+{% block body %}
+    <div id="index"></div>
+
+    {% if not user.is_authenticated %}
+        <div class="alert alert-info" role="alert">
+            <div><a class="login-link" href="{% url 'login' %}">Log in to add a new result.</a></div>
+        </div>
+
+    {% else %}
+
+        <div class="card">
+            <h2 class="h2-spacing">Submit Result</h2>
+            <form>
+                {% csrf_token %}
+                <h5>Game</h5>
+                <div id="select-game">
+                    {{ addresult.game }}
+                    <div id="game_validate" class="alert alert-danger" role="alert" style="display:none;">
+                        <div><a class="login-link">Please select a Game.</a></div>
+                    </div>
+                </div>
+                <h5>Players</h5>
+                <div id="select-players">
+                    <span id="player-select" class="select-pure-players"></span>
+                    <div id="players_validate" class="alert alert-danger" role="alert" style="display:none;">
+                        <div><a class="login-link">Please select at least two players.</a></div>
+                    </div>
+                </div>
+                <div id="select-winners">
+                <h5>Winner</h5>
+                    <span class="select-pure-winners"></span>
+                    <div id="winners_validate" class="alert alert-danger" role="alert" style="display:none;">
+                        <div><a class="login-link">Please select at least one winner.</a></div>
+                    </div>
+                </div>
+                <input id="submit-result" value="Submit Result" class="btn btn-dark"/>
+            </form>
+            {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+
+        <br>
+    {% endif %}
+
+    <div class="card">
+        <h2 class="h2-spacing">Recent Results</h2>
+        {% for result in results %}
+            <div>{{ result }}</div>
+            <div class="timestamp">{{ result.timestamp }}</div>
+            <br>
+        {% endfor %}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "gameresults/layout.html" %}
+
+{% block body %}
+
+    <div id="games"></div>
+
+    {% if not user.is_authenticated %}
+    <div class="alert alert-info" role="alert">
+        <div><a class="login-link" href="{% url 'login' %}">Log in to add a new game.</a></div>
+    </div>
+
+    {% else %}
+
+    <div class="card">
+        <h2 class="h2-spacing">Add New Game</h2>
+        <form action="{% url 'addgame' %}" method="post">
+            {% csrf_token %}
+            <h5>Game Title</h5>
+            <p>{{ addgame.game_title }}</p>
+            <input id="create-game" type="submit" value="Create Game" class="btn btn-dark"/>
+        </form>
+        {% if message %}
+        <br>
+        <div class="alert alert-info">{{ message }}</div>
+        {% endif %}
+    </div>
+
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+        <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <br>
+    {% endif %}
+
+    <div class="card">
+        <h2 class="h2-spacing">Games</h2>
+        {% for game in games %}
+            <p>{{ game.game_title }}</p>
+        {% endfor %}
+    </div>
+
+
+{% endblock %}
